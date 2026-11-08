@@ -24,6 +24,8 @@ The visual plates are original inline SVG illustrations designed for this projec
 - **Theories** — the Postcard, Dream Diary, and combined “Postcard from the Dream” readings
 - **The Code** — interactive cryptography and linguistics documentation with expandable models
 - **The Pages** — botanical, cosmic, and vessel plates
+
+The documentation folder also contains the [visual linguistic structure map](docs/postcard-dream-diary-linguistic-map.png) and its editable [Mermaid source](docs/postcard-dream-diary-linguistic-map.mmd).
 - **The Key** — a modern artifact layer and the phrases “This is it—the key to everything” and “You see there… they’re coming.”
 
 The footer links to the companion Lost World Series site: https://ravrxkms.manus.space/

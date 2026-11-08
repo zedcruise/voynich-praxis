@@ -1,0 +1,59 @@
+flowchart LR
+  A["Voynich textual event"] --> B["Shared linguistic foundation"]
+  A --> C["Image-text environment"]
+
+  subgraph F["Shared structure to measure"]
+    B --> F1["Glyphs & transliteration\nEVA / Currier notation"]
+    B --> F2["Tokens & uncertain spaces\nword-like units"]
+    B --> F3["Repetition & autocorrelation\nreuse intervals / word length"]
+    B --> F4["Morphology-like families\nprefixes / suffixes / ligatures"]
+    B --> F5["Section registers\nCurrier A-like / B-like"]
+    B --> F6["Long-range organization\nco-occurrence / clusters"]
+    C --> C1["Plants"]
+    C --> C2["Bodies / channels"]
+    C --> C3["Stars / rosettes"]
+    C --> C4["Vessels / recipes"]
+  end
+
+  subgraph P["Postcard theory · outward transmission"]
+    P1["Selective signs"] --> P2["Compression\nimage + text + omission"]
+    P2 --> P3["Recipient-aware markers\nlabels / stars / orientation"]
+    P3 --> P4["Stable motifs across pages"]
+    P4 --> P5["Question:\nwhat was sent?"]
+  end
+
+  subgraph D["Dream Diary theory · inward record"]
+    D1["Recurrence with variation"] --> D2["State transitions\npage order / section shifts"]
+    D2 --> D3["Embodied configurations\nplants / bodies / vessels"]
+    D3 --> D4["Memory formulas\nopenings / refrains / returns"]
+    D4 --> D5["Question:\nwhat was experienced?"]
+  end
+
+  F1 --> P1
+  F2 --> P2
+  F5 --> P3
+  F6 --> P4
+  C1 --> P4
+  C3 --> P3
+
+  F3 --> D1
+  F5 --> D2
+  C2 --> D3
+  C4 --> D3
+  F4 --> D4
+  C3 --> D2
+
+  P5 --> S["Postcard from the Dream\nprivate record + public transmission"]
+  D5 --> S
+  S --> T["Praxis discipline\nobservation → interpretation\nwithout premature certainty"]
+
+  classDef foundation fill:#d9e5d2,stroke:#516d58,color:#263d38,stroke-width:1px;
+  classDef postcard fill:#f2ead7,stroke:#a55d3a,color:#263d38,stroke-width:1px;
+  classDef diary fill:#cbd7c5,stroke:#516d58,color:#263d38,stroke-width:1px;
+  classDef visual fill:#e3d6bb,stroke:#806c4e,color:#263d38,stroke-width:1px;
+  classDef synthesis fill:#29443c,stroke:#d7a064,color:#f5efdf,stroke-width:2px;
+  class B,F1,F2,F3,F4,F5,F6 foundation;
+  class P1,P2,P3,P4,P5 postcard;
+  class D1,D2,D3,D4,D5 diary;
+  class C,C1,C2,C3,C4 visual;
+  class S,T synthesis;
