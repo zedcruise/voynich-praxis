@@ -4,6 +4,7 @@ import './App.css'
 const sections = [
   { id: 'story', label: 'The Story' },
   { id: 'praxis', label: 'The Praxis' },
+  { id: 'theories', label: 'Theories' },
   { id: 'gallery', label: 'The Pages' },
   { id: 'key', label: 'The Key' },
 ]
@@ -118,13 +119,43 @@ function App() {
           </div>
         </section>
 
+        <section className="section theories" id="theories">
+          <div className="theories-inner">
+            <div className="section-heading">
+              <p className="eyebrow">III · Two doors into the manuscript</p>
+              <h2>The postcard<br /><i>from the dream</i></h2>
+              <p>A working theory, not a final answer: the pages may be both transmissions from a world and a diary of what that world felt like from inside.</p>
+            </div>
+            <div className="theory-grid">
+              <article className="theory-card postcard-theory">
+                <span className="theory-number">A · OUTWARD</span>
+                <h3>The Postcard</h3>
+                <p className="theory-lead">A postcard never carries the whole country. It carries the signs that might make someone remember it.</p>
+                <p>This reading treats each folio as a selected transmission. The plant, the circle, the body in the green channel, and the recurring marks are not a complete map; they are clues sent toward a reader who may already know the larger world.</p>
+                <p className="theory-question">What did the maker choose to show—and what could safely remain unsaid?</p>
+              </article>
+              <article className="theory-card diary-theory">
+                <span className="theory-number">B · INWARD</span>
+                <h3>The Dream Diary</h3>
+                <p className="theory-lead">Perhaps the manuscript is not a map of a place, but a notebook of experiences that could not be allowed to disappear.</p>
+                <p>This reading follows recurrence, sudden changes of scale, bodies in vessels, impossible plants, and words that may be remembered sounds. The author may be recording a world encountered through ritual, imagination, sleep, or another form of attention.</p>
+                <p className="theory-question">What was seen, remembered, or transformed before morning?</p>
+              </article>
+            </div>
+            <div className="synthesis">
+              <span className="theory-number">THE WORKING SYNTHESIS</span>
+              <p>A <strong>postcard diary</strong>: a sequence of compressed observations sent outward from an unfamiliar world. It may be intimate and communicative at the same time. The page does not tell us whether the world was external, visionary, symbolic, or all three. It asks whether we can learn to see the horse on the road.</p>
+            </div>
+          </div>
+        </section>
+
         <section className="section gallery" id="gallery">
-          <div className="section-heading centered"><p className="eyebrow">III · Pages that look back</p><h2>An atlas of<br /><i>becoming</i></h2><p>Three recurring worlds: the plant, the circle, and the vessel. Not answers—portals for attention.</p></div>
+          <div className="section-heading centered"><p className="eyebrow">IV · Pages that look back</p><h2>An atlas of<br /><i>becoming</i></h2><p>Three recurring worlds: the plant, the circle, and the vessel. Not answers—portals for attention.</p></div>
           <div className="plates-grid"><BotanicalPlate variant="cosmos" label="Plate II · The cosmic wheel" /><BotanicalPlate variant="vessels" label="Plate III · The vessels of transformation" /></div>
         </section>
 
         <section className="section key-section" id="key">
-          <div className="key-card"><div><p className="eyebrow">IV · The modern artifact</p><h2>The key<br /><i>manifests</i></h2><p>“This is it—the key to everything.” A phrase from a contemporary recording becomes another layer in the manuscript’s conversation: then and now, image and voice, symbol and arrival.</p><p className="quote">“You see there… they’re coming.”</p></div><div className="artifact"><div className="artifact-frame"><span>✦</span><span>◌</span><span>✧</span><span>⌁</span><b>KEY</b></div><small>Portal Key · an original modern artifact</small></div></div>
+          <div className="key-card"><div><p className="eyebrow">V · The modern artifact</p><h2>The key<br /><i>manifests</i></h2><p>“This is it—the key to everything.” A phrase from a contemporary recording becomes another layer in the manuscript’s conversation: then and now, image and voice, symbol and arrival.</p><p className="quote">“You see there… they’re coming.”</p></div><div className="artifact"><div className="artifact-frame"><span>✦</span><span>◌</span><span>✧</span><span>⌁</span><b>KEY</b></div><small>Portal Key · an original modern artifact</small></div></div>
         </section>
       </main>
 
