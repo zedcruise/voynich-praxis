@@ -22,6 +22,7 @@ The visual plates are original inline SVG illustrations designed for this projec
 - **The Story** — the tea of memory and the plant as teacher
 - **The Praxis** — three principles for non-reductionist translation
 - **Theories** — the Postcard, Dream Diary, and combined “Postcard from the Dream” readings
+- **The Code** — interactive cryptography and linguistics documentation with expandable models
 - **The Pages** — botanical, cosmic, and vessel plates
 - **The Key** — a modern artifact layer and the phrases “This is it—the key to everything” and “You see there… they’re coming.”
 

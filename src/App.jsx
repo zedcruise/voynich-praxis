@@ -5,8 +5,60 @@ const sections = [
   { id: 'story', label: 'The Story' },
   { id: 'praxis', label: 'The Praxis' },
   { id: 'theories', label: 'Theories' },
+  { id: 'code', label: 'The Code' },
   { id: 'gallery', label: 'The Pages' },
   { id: 'key', label: 'The Key' },
+]
+
+const documentationPanels = [
+  {
+    id: 'overview',
+    label: 'Overview',
+    kicker: '01 · The object',
+    title: 'A language event, not a locked box.',
+    text: 'The manuscript is organized at several scales at once: glyph, token, line, page, section, and image. The Code view keeps those layers together instead of reducing the work to a single substitution key.',
+    signals: ['Repeated signs', 'Section registers', 'Image-text coupling'],
+  },
+  {
+    id: 'glyphs',
+    label: 'Glyphs & Tokens',
+    kicker: '02 · The visible script',
+    title: 'A glyph is not automatically a letter.',
+    text: 'A visible sign may be a sound, syllable, morpheme, ligature, category marker, or positional variant. EVA and Currier notation let us compare shapes; they do not tell us what those shapes mean.',
+    signals: ['Uncertain spaces', 'Ligature candidates', 'Morphology-like families'],
+  },
+  {
+    id: 'ciphers',
+    label: 'Cipher Models',
+    kicker: '03 · Mechanisms to test',
+    title: 'No single key gets the whole room.',
+    text: 'Simple substitution, homophony, position-dependent systems, transposition, nomenclators, ligatures, and steganography each explain some features and fail on others. A good model must predict unseen pages.',
+    signals: ['Substitution', 'Transposition', 'Steganography'],
+  },
+  {
+    id: 'linguistics',
+    label: 'Linguistic Signals',
+    kicker: '04 · The statistical trace',
+    title: 'Order survives the mystery.',
+    text: 'Frequency, repetition, autocorrelation, word length, section-specific vocabulary, and co-occurrence patterns suggest a constrained process. These are clues about structure, not a translation into English.',
+    signals: ['Autocorrelation', 'Word clusters', 'Currier A / B'],
+  },
+  {
+    id: 'tests',
+    label: 'Tests',
+    kicker: '05 · The discipline',
+    title: 'A key must open pages it never saw.',
+    text: 'Every proposed reading should be tested against held-out folios, alternate transcriptions, shuffled controls, and competing generators. The Praxis preserves failed predictions as part of the record.',
+    signals: ['Held-out pages', 'Blinded annotation', 'Competing models'],
+  },
+]
+
+const cipherModels = [
+  ['Simple substitution', 'One visible symbol maps to one hidden symbol. A useful baseline, but unlikely to explain every layer.'],
+  ['Homophonic substitution', 'Several visible signs may represent one underlying unit, flattening ordinary frequency patterns.'],
+  ['Position-dependent', 'The key changes by page, line, section, or state—one possible source of A/B variation.'],
+  ['Ligatures & compounds', 'A complex glyph may compress several smaller elements into one visual unit.'],
+  ['Steganography', 'A second message may hide in positions, intervals, colors, omissions, or diagram routes.'],
 ]
 
 function BotanicalPlate({ variant = 'plant', label }) {
@@ -53,6 +105,8 @@ function BotanicalPlate({ variant = 'plant', label }) {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [active, setActive] = useState('hero')
+  const [activeDoc, setActiveDoc] = useState('overview')
+  const [expandedModel, setExpandedModel] = useState(0)
 
   const goTo = (id) => {
     setActive(id)
@@ -149,13 +203,41 @@ function App() {
           </div>
         </section>
 
+        <section className="section code-section" id="code">
+          <div className="code-inner">
+            <div className="code-heading">
+              <div>
+                <p className="eyebrow">IV · The documentation room</p>
+                <h2>Read the<br /><i>structure</i></h2>
+              </div>
+              <p>The manuscript may be undeciphered, but it is not without behavior. Select a lens to move through the evidence behind the Postcard and Dream Diary theories.</p>
+            </div>
+            <div className="doc-tabs" role="tablist" aria-label="Cryptography and linguistics documentation">
+              {documentationPanels.map((panel) => (
+                <button key={panel.id} className={activeDoc === panel.id ? 'doc-tab active' : 'doc-tab'} onClick={() => setActiveDoc(panel.id)} role="tab" aria-selected={activeDoc === panel.id}>{panel.label}</button>
+              ))}
+            </div>
+            {documentationPanels.filter((panel) => panel.id === activeDoc).map((panel) => (
+              <div className="doc-panel" key={panel.id} role="tabpanel">
+                <div className="doc-panel-copy"><p className="theory-number">{panel.kicker}</p><h3>{panel.title}</h3><p>{panel.text}</p></div>
+                <div className="signal-list"><p className="signal-label">Signals to preserve</p>{panel.signals.map((signal, index) => <span key={signal}><b>0{index + 1}</b>{signal}</span>)}</div>
+              </div>
+            ))}
+            <div className="models-block">
+              <div className="models-intro"><p className="theory-number">MECHANISMS TO TEST</p><h3>Possible keys,<br /><i>kept plural</i></h3><p>No mechanism is accepted just because it produces a beautiful answer. Open a model to see what it explains—and what it leaves unresolved.</p></div>
+              <div className="model-list">{cipherModels.map(([name, description], index) => <button className={expandedModel === index ? 'model-item expanded' : 'model-item'} key={name} onClick={() => setExpandedModel(expandedModel === index ? -1 : index)}><span className="model-index">0{index + 1}</span><span className="model-name">{name}</span><span className="model-toggle">{expandedModel === index ? '−' : '+'}</span>{expandedModel === index && <span className="model-description">{description}</span>}</button>)}</div>
+            </div>
+            <div className="code-footer-note"><span>POSTCARD / DREAM DIARY</span><p>A key is credible only when it opens pages it never saw.</p></div>
+          </div>
+        </section>
+
         <section className="section gallery" id="gallery">
-          <div className="section-heading centered"><p className="eyebrow">IV · Pages that look back</p><h2>An atlas of<br /><i>becoming</i></h2><p>Three recurring worlds: the plant, the circle, and the vessel. Not answers—portals for attention.</p></div>
+          <div className="section-heading centered"><p className="eyebrow">V · Pages that look back</p><h2>An atlas of<br /><i>becoming</i></h2><p>Three recurring worlds: the plant, the circle, and the vessel. Not answers—portals for attention.</p></div>
           <div className="plates-grid"><BotanicalPlate variant="cosmos" label="Plate II · The cosmic wheel" /><BotanicalPlate variant="vessels" label="Plate III · The vessels of transformation" /></div>
         </section>
 
         <section className="section key-section" id="key">
-          <div className="key-card"><div><p className="eyebrow">V · The modern artifact</p><h2>The key<br /><i>manifests</i></h2><p>“This is it—the key to everything.” A phrase from a contemporary recording becomes another layer in the manuscript’s conversation: then and now, image and voice, symbol and arrival.</p><p className="quote">“You see there… they’re coming.”</p></div><div className="artifact"><div className="artifact-frame"><span>✦</span><span>◌</span><span>✧</span><span>⌁</span><b>KEY</b></div><small>Portal Key · an original modern artifact</small></div></div>
+          <div className="key-card"><div><p className="eyebrow">VI · The modern artifact</p><h2>The key<br /><i>manifests</i></h2><p>“This is it—the key to everything.” A phrase from a contemporary recording becomes another layer in the manuscript’s conversation: then and now, image and voice, symbol and arrival.</p><p className="quote">“You see there… they’re coming.”</p></div><div className="artifact"><div className="artifact-frame"><span>✦</span><span>◌</span><span>✧</span><span>⌁</span><b>KEY</b></div><small>Portal Key · an original modern artifact</small></div></div>
         </section>
       </main>
 
