@@ -422,6 +422,169 @@ The Postcard theory uses this organization to imagine selected transmissions fro
 
 The Praxis should keep both possibilities open. It should read the manuscript as a **multimodal language event**, preserve anomalies before classifying them, and distinguish what the data shows from what the story allows us to imagine.
 
+## 10. Entropy comparisons: Voynichese and the two models
+
+### 10.1 What entropy measures
+
+Entropy measures uncertainty in a distribution. For a set of symbols with probabilities \(p(x)\), first-order entropy is:
+
+```text
+H1 = -Σ p(x) log2 p(x)
+```
+
+For text, \(x\) might be a glyph, a token, a line type, or a section label. A conditional entropy asks how uncertain the next unit remains after the previous unit is known:
+
+```text
+H2 = -Σ p(x, y) log2 p(y | x)
+```
+
+At the character level, a low H2 means that the next character is unusually predictable from the preceding character. This can result from ordinary language structure, a small or restricted script, abbreviations, a cipher, a constructed language, or a transcription convention. Entropy is therefore a measurement of predictability, not a direct measurement of meaning.
+
+### 10.2 Published Voynich comparison
+
+Lindemann and Bowern built a Voynich corpus partitioned by Currier language, scribal hand, and transcription system, alongside 311 Wikipedia language samples and eighteen historical texts in eight languages. Their study reports that Voynichese has unusually low conditional character entropy compared with the comparison corpus. In their updated results, the Minimal Voynich transcription averaged approximately **2.48 bits**, while the fuller transcription averaged approximately **2.11 bits**. The Wikipedia comparison range was approximately **2.77–6.14 bits**. [7]
+
+The authors emphasize that these values depend on script conventions, character-set size, document length, abbreviations, and the encoding process. They also report that the A and B varieties are similar at the character level but differ at the word level. In particular, the `-edy` ending is much more common in B, and the `qo-` beginning is also more common in B. Removing those sequences brings the A and B H2 values to within about one percent of each other. [7]
+
+The result gives the Postcard and Dream Diary theories a measurable starting point:
+
+> The visible script is not behaving like an unconstrained stream of marks. Its next-character choices are unusually restricted, but the source of that restriction remains open.
+
+This observation is compatible with a meaningful language, an encoded language, a constructed system, a formulaic notebook, or another constrained process. It does not establish that the pages are postcards or dreams.
+
+### 10.3 The comparison problem
+
+There are no historical documents labeled “Postcard theory” or “Dream Diary theory” from which we can calculate an authentic model entropy. We must not fabricate a number and call it the entropy of the theory. Instead, the theories define **model families** whose entropy profiles can be generated from controlled corpora.
+
+The correct comparison has three layers:
+
+1. **Observed manuscript:** measure the actual transcription under clearly stated normalization and segmentation rules.
+2. **Mechanism controls:** generate known-language ciphers, shuffled texts, formulaic notebooks, and multimodal label systems under matched length and symbol inventories.
+3. **Theory models:** construct explicit Postcard and Dream Diary corpora with rules stated before measurement.
+
+The theories should be compared not only by a single H2 score, but by a vector of entropy and organization measures:
+
+```text
+E = [character H1, character H2, token H1, token H2,
+     word-length entropy, section entropy, positional entropy,
+     image-linked entropy, transition entropy]
+```
+
+Two models that share the same character H2 may still differ strongly in section, positional, or image-linked entropy.
+
+### 10.4 Expected entropy signatures
+
+The table below gives predictions to test. It does not report historical measurements for the theories.
+
+| Layer | Voynich observation to measure | Postcard model prediction | Dream Diary model prediction |
+|---|---|---|---|
+| Character H2 | Published value is unusually low | Low to moderate: a compact sign system may reuse a stable vocabulary across transmissions | Low to moderate: recurring memory formulas may constrain local choices, with more variation at transitions |
+| Token H1 | Frequency and type distribution in the transcription | A small set of high-value signs plus local topic vocabulary; entropy may fall within postcard clusters | Recurrent motifs with a larger long tail of episodic or altered forms |
+| Token H2 | Predictability of one token from the preceding token | Higher predictability near labels, markers, greetings, and formulaic closures | Higher predictability inside remembered sequences but possible shifts at dream/state boundaries |
+| Word-length entropy | Length distribution and sequential dependence | Short, compressed labels and formulae should create low entropy in marked positions | Entry openings and refrains may be stable while experiential descriptions vary in length |
+| Section entropy | Vocabulary specificity across page families | Strong register changes between botanical, bodily, celestial, and recipe postcards | State or scene changes may create clusters that do not align perfectly with illustration categories |
+| Positional entropy | Token behavior by line and paragraph position | Orientation markers should have low positional entropy at predictable page locations | Diary openings, returns, and transitions should recur at sequence boundaries |
+| Image-linked entropy | Text uncertainty conditioned on image motifs | A plant, star, or vessel may reduce uncertainty by acting as a recipient-facing key | A motif may reduce uncertainty within a recurring scene while allowing its interpretation to change |
+| Transition entropy | Change from one folio or section to the next | Lower entropy between related transmissions; deliberate jumps may mark a new message | Higher transition entropy at experiential shifts, with recurring motifs acting as bridges |
+
+The important difference is not simply “Postcard equals low entropy” and “Dream Diary equals high entropy.” Both models can contain repetition and variation. The distinction is where predictability is located: the Postcard model predicts stable communicative markers and compressed topic registers, while the Dream Diary model predicts recurrent motifs plus state-dependent transitions.
+
+### 10.5 Model definitions for reproducible testing
+
+#### Postcard model P0: selected transmission
+
+Construct a corpus of short entries. Each entry contains:
+
+1. an orientation marker;
+2. one or more stable motifs;
+3. a compressed image-linked description;
+4. an optional recipient or closure marker;
+5. omitted connective material.
+
+The model should vary the local topic while preserving the marker inventory. Its expected signature is lower entropy at entry boundaries and higher section or motif specificity than in a uniformly distributed text.
+
+#### Postcard model P1: multimodal postcard
+
+Add an image label to each entry and allow some information to be carried only by the image. Measure text entropy alone, then conditional text entropy given the image label:
+
+```text
+ΔH_image = H(text) - H(text | image motif)
+```
+
+A positive and reproducible \(ΔH_image\) would mean that image context reduces textual uncertainty. This would not prove the historical manuscript is a postcard, but it would operationalize the theory’s claim that image and text work together.
+
+#### Dream Diary model D0: recurrent state record
+
+Construct a sequential corpus with a small set of recurring states or scenes. Each state has:
+
+1. a recurrence marker;
+2. a flexible set of sensory or visual details;
+3. transition formulas between states;
+4. repeated motifs that return with altered combinations.
+
+The expected signature is low entropy within recurring state clusters and higher transition entropy at state changes. The model should not be allowed to use arbitrary randomness; the state rules must be declared before measuring the result.
+
+#### Dream Diary model D1: layered notebook
+
+Add multiple writing phases or hands. Each phase may favor a different token family or register while sharing a core motif vocabulary. Compare within-phase entropy, between-phase entropy, and motif persistence.
+
+This model connects to Currier A/B without assuming that A and B are literally two languages. A similar statistical split could result from different scribes, different subjects, different cipher settings, or different stages of composition.
+
+### 10.6 Tests that can distinguish the models
+
+#### Test A: boundary entropy
+
+Measure character, token, and word-length entropy in the first, middle, and final portions of paragraphs and folios. The Postcard model predicts special behavior around entry openings and closures. The Dream Diary model predicts special behavior around recurrence and transition boundaries.
+
+#### Test B: image-conditioned entropy
+
+Blindly annotate folios for plant, body, star, vessel, and diagram motifs. Calculate whether the presence of a motif changes token uncertainty. Compare against shuffled image labels and page-order controls.
+
+#### Test C: recurrence with variation
+
+Cluster similar folios or token sequences. Measure whether repeated clusters are exact copies, near copies, or transformed returns. Exact copying favors copying or formula; structured variation is more compatible with an episodic or state-based record.
+
+#### Test D: section-register stability
+
+Calculate the divergence between token distributions in page families. A stable Postcard register should remain recognizable across separated transmissions. A Dream Diary state should recur even when it appears in a different visual section.
+
+#### Test E: held-out cipher prediction
+
+Fit any proposed substitution, ligature, or positional model on one group of folios and test it on another. Record the change in entropy and predictive accuracy. A model that only lowers entropy on its training pages is overfit.
+
+#### Test F: shuffled and generated controls
+
+Compare the manuscript to:
+
+- token-shuffled pages;
+- character-shuffled pages preserving word lengths;
+- known plaintexts encrypted by candidate ciphers;
+- formulaic recipe and notebook texts;
+- P0/P1 postcard corpora;
+- D0/D1 diary corpora.
+
+The goal is to determine which combination of statistics is unusual, not to force one score to choose a theory.
+
+### 10.7 Interpretation rules
+
+The following rules protect the analysis from turning entropy into a new form of overconfidence:
+
+1. Never compare values produced by different transcription conventions without recording the difference.
+2. Never treat low entropy as proof of language, cipher, dream, or postcard.
+3. Report confidence intervals or bootstrap ranges when corpus size permits.
+4. Use the same tokenization, sample length, and alphabet policy across controls.
+5. Separate discovery data from held-out evaluation data.
+6. Publish failed model predictions alongside successful ones.
+7. Preserve image context rather than flattening every folio into a character string.
+
+The most valuable outcome would be a profile in which the manuscript’s entropy signature is difficult for ordinary ciphers, ordinary notebooks, and arbitrary pseudo-text to reproduce, while one or more multimodal models explain both the textual and visual organization. Even then, the result would support a model of composition, not prove what the author believed.
+
+### 10.8 Current conclusion
+
+The entropy evidence tells us that Voynichese is unusually predictable at the character level and meaningfully organized at larger scales. That makes the manuscript a constrained communication system worth studying. It does not tell us whether the sender was writing a medical work, a cipher, a constructed language, a private diary, a message to an initiate, or a postcard from another reality.
+
+The Postcard theory predicts **stable signs selected for transmission**. The Dream Diary theory predicts **recurrent signs transformed by remembered state**. Their shared prediction is that the manuscript’s order is not accidental. The next step is not to announce a winner, but to build the two corpora, measure their entropy vectors, and see which one survives contact with unseen folios.
+
 ## References
 
 [1]: https://beinecke.library.yale.edu/beinecke/collections/beinecke-cipher-voynich-manuscript "The Beinecke Cipher Voynich Manuscript Yale Library"
@@ -430,3 +593,5 @@ The Praxis should keep both possibilities open. It should read the manuscript as
 [4]: https://pmc.ncbi.nlm.nih.gov/articles/PMC3689824/ "Keywords and Co-Occurrence Patterns in the Voynich Manuscript An Information-Theoretic Analysis"
 [5]: https://www.voynich.nu/extra/lang.html "Currier A and B Two different languages"
 [6]: https://www.voynich.nu/illustr.html "Voynich MS The illustrations"
+[7]: https://alumniacademy.yale.edu/sites/default/files/2021-07/Character%20Entropy%20in%20Modern%20and%20Historical%20Texts%20Comparison%20Metrics%20for%20an%20Undeciphered%20Manuscript.pdf "Character Entropy in Modern and Historical Texts Comparison Metrics for an Undeciphered Manuscript"
+[8]: https://github.com/chirila/Voynich-public "Voynich Working Group public corpus and code"
