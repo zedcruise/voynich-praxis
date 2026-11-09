@@ -1,23 +1,14 @@
 # Voynich Praxis
 
-A self-contained React/Vite experience for the Lost World Series. The site treats the Voynich Manuscript as an invitation to holistic translation: image, text, material, ritual, context, and the reader's assumptions are considered together.
+An interactive, manuscript-inspired React experience for the School of Translation / Voynich Praxis.
 
-## Run locally
+## Public website
 
-```bash
-npm install
-npm run dev
-```
+The latest version is published through GitHub Pages at:
 
-Create a production build with:
+**https://zedcruise.github.io/voynich-praxis/**
 
-```bash
-npm run build
-```
-
-The visual plates are original inline SVG illustrations designed for this project, so the app has no missing image assets or external component-library dependencies. The narrative source is preserved in the parent workspace as `voynich_narrative.md`.
-
-## Sections
+## What is inside
 
 - **The Story** — the tea of memory and the plant as teacher
 - **The Praxis** — three principles for non-reductionist translation
@@ -26,6 +17,22 @@ The visual plates are original inline SVG illustrations designed for this projec
 - **The Pages** — botanical, cosmic, and vessel plates
 
 The documentation folder also contains the [visual linguistic structure map](docs/postcard-dream-diary-linguistic-map.png) and its editable [Mermaid source](docs/postcard-dream-diary-linguistic-map.mmd).
-- **The Key** — a modern artifact layer and the phrases “This is it—the key to everything” and “You see there… they’re coming.”
 
-The footer links to the companion Lost World Series site: https://ravrxkms.manus.space/
+## Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+The `main` branch automatically deploys the `dist` directory to GitHub Pages through `.github/workflows/deploy-pages.yml`.
+
+## Position
+
+This project treats the Voynich Manuscript as a site of encounter rather than a puzzle to be flattened. The Postcard and Dream Diary theories remain interpretive models, not claimed decipherments.
